@@ -7,7 +7,17 @@
 ## Create a special "matrix" object (really a list) that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+    x.inverse <- NULL
+    set <- function(y) {
+        x <<- y
+        x.inverse <<- NULL
+    }
+    get <- function() x
+    setinverse <- function(inverse) x.inverse <<- inverse
+    getinverse <- function() x.inverse
+    list(set = set, get = get,
+         setinverse = setinverse,
+         getinverse = getinverse)
 }
 
 
